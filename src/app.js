@@ -10,4 +10,8 @@ export class App {
     this.columnDefinitions = this._gridService.getGridColumns();
     this.gridData = this._gridService.getRecords();
   }
+
+  activate() {
+    this.gridObj.allowRowSelection = true;
+  }
 }

@@ -3,13 +3,13 @@
     <table id="table-main" class="table table-striped" style="width:100%">
       <thead>
         <tr>
-          <th class="center-text"><input type="checkbox" change.delegate="selectAllRecords()" checked.bind="allSelected"></th>
+          <th class="center-text" if.bind="gridObj.allowRowSelection"><input type="checkbox" change.delegate="selectAllRecords()" checked.bind="allSelected"></th>
           <th id="column-headers" repeat.for="column of columnHeaders"><div>${column}</div></th>
         </tr>
       </thead>
       <tbody>
         <tr id="table-row" repeat.for="record of records" class="${record.clicked ? 'selected' : ''}">
-          <td class="center-text"><input type="checkbox" checked.bind="record.selected"></td>
+          <td class="center-text" if.bind="gridObj.allowRowSelection"><input type="checkbox" checked.bind="record.selected"></td>
           <td repeat.for="column of columnHeaders" click.delegate="clickedLine(record)"><div>${record[column]}</div></td>
         </tr>
       </tbody>
