@@ -31,7 +31,7 @@ export class Grid {
     this.columnHeaders = Object.keys(firstRecord);
   }
 
-  clickedLine(record) {
+  clickedRow(record) {
     this.records.forEach(r => r.clicked = false);
     record.clicked = true;
   }
