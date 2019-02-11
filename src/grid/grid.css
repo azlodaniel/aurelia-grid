@@ -1,0 +1,12 @@
+#table-main {
+  display: block;
+  overflow-x: auto;
+  white-space: nowrap;
+}
+
+#table-main .selected {
+  background: lightslategray;
+  color: white;
+}
+
+
