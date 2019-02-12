@@ -34,6 +34,7 @@ export class Grid {
   clickedRow(record) {
     this.records.forEach(r => r.clicked = false);
     record.clicked = true;
+    return true;
   }
 
   selectAllRecords() {
@@ -44,7 +45,8 @@ export class Grid {
     }
   }
 
-  selectRow(line) {
-    line.selected = line.selected === true ? false : true;
+  selectRow(record) {
+    record.selected = record.selected === true ? false : true;
+    return true;
   }
 }

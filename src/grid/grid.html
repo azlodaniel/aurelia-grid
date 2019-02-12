@@ -10,11 +10,11 @@
         </tr>
       </thead>
       <tbody>
-        <tr id="table-row" repeat.for="record of records" class="${record.clicked ? 'selected' : ''}">
+        <tr id="table-row" repeat.for="record of records" class="${record.clicked ? 'selected' : ''}" click.delegate="clickedRow(record)">
           <td class="center-text" if.bind="gridObj.allowRowSelection">
-            <input type="checkbox" checked.bind="record.selected">
+            <input type="checkbox" click.delegate="selectRow(record)"checked.bind="record.selected">
           </td>
-          <td repeat.for="column of columnHeaders" click.delegate="clickedRow(record)">
+          <td repeat.for="column of columnHeaders">
             <div>${record[column]}</div>
           </td>
         </tr>
