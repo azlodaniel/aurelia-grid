@@ -1,5 +1,7 @@
-import { bindable } from 'aurelia-framework';
+import { bindable, inject } from 'aurelia-framework';
 
+
+@inject()
 export class Grid {
   @bindable gridData;
   @bindable gridObj;
@@ -15,7 +17,6 @@ export class Grid {
 
   _setColumnHeaders() {
     if (this.columnDefinitions && this.columnDefinitions.length > 0) {
-      console.log(this.columnDefinitions);
       this.columnHeaders = this.columnDefinitions;
     }
   }
@@ -31,7 +32,11 @@ export class Grid {
     this.columnHeaders = Object.keys(firstRecord);
   }
 
-  clickedRow(record) {
+  clickedRow(event, record) {
+    if (event.target.id === 'select-row') {
+      return true;
+    }
+
     this.records.forEach(r => r.clicked = false);
     record.clicked = true;
     return true;

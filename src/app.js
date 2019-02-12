@@ -8,10 +8,11 @@ export class App {
     this._gridService = gridService;
     this.gridObj = { };
     this.columnDefinitions = this._gridService.getGridColumns();
-    this.gridData = this._gridService.getRecords();
   }
 
   activate() {
     this.gridObj.allowRowSelection = true;
+    let data = this._gridService.getRecords();
+    this.gridData = data.Records;
   }
 }
