@@ -10,8 +10,8 @@
         </tr>
       </thead>
       <tbody>
-        <tr id="table-row" virtual-repeat.for="record of records" class="${record.clicked ? 'selected' : ''}" click.delegate="clickedRow($event, record)">
-          <td class="center-text" if.bind="gridObj.allowRowSelection">
+        <tr class="${record.clicked ? 'selected' : ''}" virtual-repeat.for="record of records" click.delegate="clickedRow($event, record)">
+          <td class="check-box" if.bind="gridObj.allowRowSelection">
             <input id="select-row" type="checkbox" click.delegate="selectRow(record)" checked.bind="record.selected">
           </td>
           <td repeat.for="column of columnHeaders">

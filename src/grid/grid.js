@@ -1,7 +1,5 @@
-import { bindable, inject } from 'aurelia-framework';
+import { bindable } from 'aurelia-framework';
 
-
-@inject()
 export class Grid {
   @bindable gridData;
   @bindable gridObj;
