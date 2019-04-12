@@ -3,9 +3,13 @@ export class GridService {
   }
 
   getGridColumns() {
-    return ['BEGDOC', 'BEGATT', 'Custodian', 'Custodian All', 'Author From', 'Email To', 'Email CC', 'Email BCC', 'Title Subject',
-      'Email Read Status', 'Email Folder', 'Email Type', 'File Type', 'File Category', 'Hidden Content', 'Languages Identified',
-      'File Path Relative', 'Last Saved By', 'MM Data Location Source Type', 'Attorney Comments', 'Paralegal Comments'];
+    return [
+      { name: 'BEGDOC', id: 0 }, { name: 'BEGATT', id: 1 }, { name: 'Custodian', id: 2 }, {name: 'Custodian All', id: 3 }, { name: 'Author From', id: 4 },
+      { name: 'Email To', id: 5 }, { name: 'Email CC', id: 6 }, { name: 'Email BCC', id: 7 }, { name: 'Title Subject', id: 8 }, { name: 'Email Read Status', id: 9 },
+      { name: 'Email Folder', id: 10 }, { name: 'Email Type', id: 11 }, { name: 'File Type', id: 12 }, { name: 'File Category', id: 13 }, { name: 'Hidden Content', id: 14 },
+      { name: 'Languages Identified', id: 15 }, { name: 'File Path Relative', id: 16 }, { name: 'Last Saved By', id: 17 }, { name: 'MM Data Location Source Type', id: 18 },
+      { name: 'Attorney Comments', id: 19 }, { name: 'Paralegal Comments', id: 20 }
+    ];
   }
 
   getRecords() {

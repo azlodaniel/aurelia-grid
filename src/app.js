@@ -6,12 +6,12 @@ import { GridService } from './grid-service';
 export class App {
   constructor(gridService) {
     this._gridService = gridService;
-    this.gridObj = { };
+    this.gridSettings = { };
     this.columnDefinitions = this._gridService.getGridColumns();
   }
 
   activate() {
-    this.gridObj.allowRowSelection = true;
+    this.gridSettings.allowRowSelection = true;
     let data = this._gridService.getRecords();
     this.gridData = data.Records;
   }

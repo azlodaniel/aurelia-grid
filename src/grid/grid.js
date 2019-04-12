@@ -2,7 +2,7 @@ import { bindable } from 'aurelia-framework';
 
 export class Grid {
   @bindable gridData;
-  @bindable gridObj;
+  @bindable gridSettings;
   @bindable columnDefinitions;
   constructor() {
   }
@@ -17,6 +17,15 @@ export class Grid {
     if (this.columnDefinitions && this.columnDefinitions.length > 0) {
       this.columnHeaders = this.columnDefinitions;
     }
+  }
+
+  clickedHeader(columnHeader) {
+    this.columnHeaders.forEach(x => {
+      if (x.name !== columnHeader.name) {
+        x.sort = null;
+      }
+    });
+    columnHeader.sort = (columnHeader.sort !== 'ascending') ? 'ascending' : 'decending';
   }
 
   gridDataChanged(newVal) {
@@ -41,15 +50,18 @@ export class Grid {
   }
 
   selectAllRecords() {
-    if (this.allSelected) {
-      this.records.forEach(r => r.selected = true);
-    } else {
-      this.records.forEach(r => r.selected = false);
-    }
+    this.records.forEach(r => r.selected = this.allSelected);
   }
 
   selectRow(record) {
     record.selected = record.selected === true ? false : true;
     return true;
+  }
+
+  convertToHtmlFriendlyText(text) {
+    if (!text) return text;
+
+    let htmlFriendlyText = text.toLowerCase().replace(/\//g, '-').replace(/\s/g, '-');
+    return htmlFriendlyText;
   }
 }
